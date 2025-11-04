@@ -1,8 +1,8 @@
 import streamlit as st
+import os
 from PIL import Image
 
 def mostrar_portada():
-
 
     st.markdown("<h1 style='text-align: center; color: #4CAF50;'>💡Emprendimiento Juvenil💡</h1>", unsafe_allow_html=True)
 
@@ -18,13 +18,14 @@ def mostrar_portada():
 
     st.divider()
 
+    # ✅ Cargar imagen del logo usando ruta absoluta
+    ruta_logo = os.path.join(os.path.dirname(__file__), "Logo", "logo.jpeg")
 
-    # Cargar imagen del logo
-    logo = Image.open("Logo/logo.jpeg")
-
-    # Mostrar el logo centrado
-    st.image(logo, use_container_width =False, width=900)
-
+    try:
+        logo = Image.open(ruta_logo)
+        st.image(logo, use_container_width=False, width=900)
+    except FileNotFoundError:
+        st.error(f"⚠️ No se encontró el logo en la ruta: {ruta_logo}")
 
     # Sección descriptiva
     st.markdown(
