@@ -18,8 +18,8 @@ def mostrar_portada():
 
     st.divider()
 
-    # ✅ Cargar imagen del logo usando ruta absoluta
-    ruta_logo = os.path.join(os.path.dirname(__file__), "Logo", "logo.jpeg")
+    # ✅ Cargar imagen del logo (nueva ubicación: /imagenes/logo.jpeg)
+    ruta_logo = os.path.join(os.path.dirname(__file__), "imagenes", "logo.jpeg")
 
     try:
         logo = Image.open(ruta_logo)
